@@ -1,22 +1,26 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, render_template, redirect, url_for
 
-# Our Flask app object
-app = Flask(__name__, template_folder='../templates',
-            static_folder='../static')
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
 
-@app.route('/')
-@app.route('/index')
+@app.route("/")
+@app.route("/index")
+@app.route("/home")
 def index():
     """Our default routes of '/' and '/index'
 
     Return: The content we want to display to a user
     """
 
-    return render_template('index.html')
+    return render_template("index.html")
 
 
-@app.route('/<path:path>')
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+@app.route("/<path:path>")
 def catch_all(path):
     """A special route that catches all other requests
 
@@ -27,8 +31,8 @@ def catch_all(path):
     Return: A redirect to our index route
     """
 
-    return redirect(url_for('index'))
+    return redirect(url_for("index"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
