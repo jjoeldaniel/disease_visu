@@ -1,22 +1,24 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
 
-    <title>Disease Visual</title>
-  </head>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
 
-  <nav>
-    {% include 'nav.html' %}
-  </nav>
+  <title>Disease Visual</title>
+</head>
 
-  <body>
+<nav>
+  {% include 'nav.html' %}
+</nav>
 
-    {% block content %}{% endblock %}
+<body>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
-  </body>
+  {% block content %}{% endblock %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
+</body>
+
 </html>
