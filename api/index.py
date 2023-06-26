@@ -20,6 +20,11 @@ def about():
     return render_template("about.html")
 
 
+@app.route("/map")
+def map():
+    return render_template("map.html")
+
+
 @app.route("/<path:path>")
 def catch_all(path):
     """A special route that catches all other requests
