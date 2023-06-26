@@ -18,12 +18,13 @@
         container: 'map',
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         style: 'mapbox://styles/examples/cjgioozof002u2sr5k7t14dim',
-        zoom: 2.2
+        zoom: 2.2,
+        projection: 'globe'
     });
 
     map.fitBounds([
-        [-155, 17],
-        [-48, 53]
+        [-145, 25],
+        [-55, 45]
     ]);
 
     // Data: UN Human Development Index 2017 Europe extract
