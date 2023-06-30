@@ -1879,6 +1879,10 @@ input:checked + .toggle-bg {
     padding-top: 8rem;
   }
 
+  .md\:pt-24 {
+    padding-top: 6rem;
+  }
+
   .md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
