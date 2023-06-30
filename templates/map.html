@@ -14,17 +14,14 @@
         height: 90vh;
     }
 
-    #legend {
+    .legend {
         position: absolute;
         float: right;
         height: fit-content;
         width: fit-content;
-        right: 20px;
-        bottom: 20px;
         font-family: 'Open Sans', sans-serif;
         background: #fff;
         border-radius: 5px;
-        margin-bottom: 10px;
         padding: 15px;
     }
 
@@ -33,8 +30,6 @@
         float: right;
         height: fit-content;
         width: fit-content;
-        right: 20px;
-        top: 20px;
         font-family: 'Open Sans', sans-serif;
     }
 
@@ -71,14 +66,6 @@
         background: lightsteelblue;
     }
 
-    #legend {
-        padding: 10px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        line-height: 18px;
-        height: fit-content;
-        width: fit-content;
-    }
-
     .legend-key {
         display: inline-block;
         border-radius: 20%;
@@ -91,7 +78,7 @@
 <div class="map-container">
     <div id='map'></div>
 
-    <div class="menu-container">
+    <div class="menu-container right-2 top-2 md:right-5 md:top-5">
         <div class='map-overlay' id='features'>
             <h2 id="stateDensityData-title">US Population Density</h2>
             <h2 id="stateOutbreakData-title" class="hidden">US Foodborne<br>Illness Outbreaks</h2>
@@ -101,7 +88,8 @@
         </div>
         <nav id="menu"></nav>
     </div>
-    <div class='map-overlay' id='legend'></div>
+    <div class='map-overlay legend right-2 bottom-2 md:right-5 md:bottom-5 md:mb-5"' id='legend1'></div>
+    <div class='map-overlay legend hidden right-2 bottom-2 md:right-5 md:bottom-5 md:mb-5' id='legend2'></div>
 </div>
 
 <script>
@@ -144,22 +132,63 @@
             '#BD0026',
             '#800026'
         ];
+        const layers2 = [
+            '84-465',
+            '466-847',
+            '848-1229',
+            '1230-1611',
+            '1612-1993',
+            '1994-2375',
+            '2376-2758',
+            '2759+',
+        ]
+        const colors2 = [
+            '#FEF2D6',
+            '#FAE9C3',
+            '#F7F0A0',
+            '#F2E886',
+            '#DCC571',
+            '#B97D60',
+            '#875A4C',
+            '#543D38',
+        ]
 
         // create legends
-        const legend = document.getElementById('legend');
+        const legend = document.getElementById('legend1');
+        const legend2 = document.getElementById('legend2');
 
+        // loop through layers and layers2 and generate a label with a
+        // colored square for each interval
         layers.forEach((layer, i) => {
             const color = colors[i];
+            const color2 = colors2[i];
+
             const item = document.createElement('div');
+            const item2 = document.createElement('div');
+
             const key = document.createElement('span');
+            const key2 = document.createElement('span');
+
             key.className = 'legend-key';
+            key2.className = 'legend-key';
+
             key.style.backgroundColor = color;
+            key2.style.backgroundColor = color2;
 
             const value = document.createElement('span');
+            const value2 = document.createElement('span');
+
             value.innerHTML = `${layer}`;
+            value2.innerHTML = `${layers2[i]}`;
+
             item.appendChild(key);
+            item2.appendChild(key2);
+
             item.appendChild(value);
+            item2.appendChild(value2);
+
             legend.appendChild(item);
+            legend2.appendChild(item2);
         });
 
         map.on('mousemove', (event) => {
@@ -203,6 +232,9 @@
                         'visibility'
                     );
 
+                    const legend = id === 'stateDensityData' ? document.getElementById('legend1') : document.getElementById('legend2');
+                    const otherLegend = id === 'stateDensityData' ? document.getElementById('legend2') : document.getElementById('legend1');
+
                     const otherId = id === 'stateDensityData' ? 'stateOutbreakData' : 'stateDensityData';
                     const other = document.getElementById(otherId);
                     const title = document.getElementById(`${id}-title`);
@@ -231,6 +263,10 @@
                         title.style.display = 'none';
                         otherTitle.style.display = 'block';
 
+                        // Change legend
+                        legend.style.display = 'none';
+                        otherLegend.style.display = 'block';
+
                     } else {
 
                         // Change map layer
@@ -253,6 +289,9 @@
                         title.style.display = 'block';
                         otherTitle.style.display = 'none';
 
+                        // Change legend
+                        legend.style.display = 'block';
+                        otherLegend.style.display = 'none';
                     }
                 };
 
