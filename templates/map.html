@@ -109,6 +109,7 @@
     ]);
 
     let hoveredPolygonId = null;
+    let currentLayer = 'stateDensityData';
 
     map.on('load', () => {
 
@@ -193,11 +194,22 @@
 
         map.on('mousemove', (event) => {
             const states = map.queryRenderedFeatures(event.point, {
-                layers: ['stateDensityData']
+                layers: [currentLayer]
             });
-            document.getElementById('pd').innerHTML = states.length
-                ? `<h3>${states[0].properties.name}</h3><p><strong><em>${states[0].properties.density}</strong> people per square mile</em></p>`
-                : `<p>Hover over a state!</p>`;
+
+            if (states.length) {
+                let message = `<h3>${states[0].properties.name}</h3><p><strong><em>`;
+
+                if (currentLayer === 'stateDensityData') {
+                    message += `${states[0].properties.density}</strong> people per square mile</em></p>`;
+                } else {
+                    message += `${states[0].properties.outbreaks}</strong> outbreaks</em></p>`;
+                }
+
+                document.getElementById('pd').innerHTML = message;
+            } else {
+                document.getElementById('pd').innerHTML = `<p>Hover over a state!</p>`;
+            }
         });
 
         map.on('idle', () => {
@@ -242,6 +254,7 @@
                     const otherTitle = document.getElementById(`${otherId}-title`);
 
                     if (visibility === 'visible') {
+                        currentLayer = otherId;
 
                         // Change map layer
                         map.setLayoutProperty(
@@ -268,6 +281,7 @@
                         otherLegend.style.display = 'block';
 
                     } else {
+                        currentLayer = clickedLayer;
 
                         // Change map layer
                         map.setLayoutProperty(
