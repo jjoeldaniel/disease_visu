@@ -113,6 +113,29 @@
 
     map.on('load', () => {
 
+        map.addSource('states', {
+            'type': 'geojson',
+            'data': 'https://docs.mapbox.com/mapbox-gl-js/assets/us_states.geojson'
+        });
+
+        // The feature-state dependent fill-opacity expression will render the hover effect
+        // when a feature's hover state is set to true.
+        map.addLayer({
+            'id': 'state-fills',
+            'type': 'fill',
+            'source': 'states',
+            'layout': {},
+            'paint': {
+                'fill-color': '#627BC1',
+                'fill-opacity': [
+                    'case',
+                    ['boolean', ['feature-state', 'hover'], false],
+                    0.25,
+                    0
+                ]
+            }
+        });
+
         const layers = [
             '0-10',
             '10-20',
@@ -190,6 +213,24 @@
 
             legend.appendChild(item);
             legend2.appendChild(item2);
+        });
+
+        // When the user moves their mouse over the state-fill layer, we'll update the
+        // feature state for the feature under the mouse.
+        map.on('mousemove', 'state-fills', (e) => {
+            if (e.features.length > 0) {
+                if (hoveredPolygonId !== null) {
+                    map.setFeatureState(
+                        { source: 'states', id: hoveredPolygonId },
+                        { hover: false }
+                    );
+                }
+                hoveredPolygonId = e.features[0].id;
+                map.setFeatureState(
+                    { source: 'states', id: hoveredPolygonId },
+                    { hover: true }
+                );
+            }
         });
 
         map.on('mousemove', (event) => {
