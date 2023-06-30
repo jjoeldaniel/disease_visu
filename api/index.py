@@ -15,6 +15,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/findings")
+def findings():
+    return render_template("findings.html")
+
+
 @app.route("/map")
 def map():
     return render_template("map.html")
