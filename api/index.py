@@ -15,9 +15,9 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/findings")
-def findings():
-    return render_template("findings.html")
+@app.route("/data")
+def data():
+    return render_template("data.html")
 
 
 @app.route("/map")

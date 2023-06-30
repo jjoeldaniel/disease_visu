@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block content %}
+
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawScatterChart);
+    google.charts.setOnLoadCallback(drawGauge);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Type', 'Count'],
+            ['Coastal States', 34132],
+            ['Non-Coastal States', 7534]
+        ]);
+
+        var options = {
+            title: 'Distribution of Outbreaks',
+            pieHole: 0.4,
+            colors: ['#36a2eb', '#ff6384']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('pieChart'));
+        chart.draw(data, options);
+    }
+
+
+    function drawScatterChart() {
+        var data = google.visualization.arrayToDataTable([
+                ['Population Density', 'Outbreak Cases'],
+                [94.65, 358], [1.264, 187], [57.05, 839], [56.43, 179], [241.7, 2546],
+                [49.33, 890], [739.1, 668], [464.3, 109], [353.4, 2612], [169.5, 580],
+                [214.1, 470], [19.15, 170], [231.5, 1994], [181.7, 401], [54.81, 464],
+                [35.09, 551], [110, 536], [105, 202], [43.04, 707], [596.3, 989],
+                [840.2, 1313], [173.9, 2095], [67.14, 1790], [63.5, 139], [87.26, 471],
+                [6.858, 215], [23.97, 211], [24.8, 391], [147, 607], [1189, 334],
+                [17.16, 259], [412.3, 2728
+                ]]
+        );
+
+        var options = {
+            title: 'Relationship between Population Density and Outbreaks',
+            hAxis: { title: 'Population Density (people per square mile)', minValue: 0, maxValue: 15 },
+            vAxis: { title: 'Outbreak Cases', minValue: 0, maxValue: 15 },
+            legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('scatterChart'));
+
+        chart.draw(data, options);
+    }
+
+    function drawGauge() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['UI', 80],
+        ]);
+
+        var options = {
+          width: 400, height: 120,
+          redFrom: 90, redTo: 100,
+          yellowFrom:75, yellowTo: 90,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('gaugeChart'));
+
+        chart.draw(data, options);
+
+        setInterval(function() {
+          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 13000);
+        setInterval(function() {
+          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 5000);
+        setInterval(function() {
+          data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+          chart.draw(data, options);
+        }, 26000);
+      }
+</script>
+
+<style>
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+    text {
+        font-size: larger;
+    }
+</style>
+
+<div
+    class="container pt-10 pb-20 md:pb-32 md:pt-24 space-y-6 h-full mx-auto pl-5 pr-5 md:max-w-5xl max-w-lg flex flex-col justify-center items-center">
+
+    <h1 class="text-3xl font-bold pb-8 md:pb-20">Data Representation</h1>
+
+    <div class="md:flex md:flex-row flex-col">
+        <div id="pieChart" class="w-96 h-96 md:w-[50vh] md:h-[50vh]"></div>
+        <div id="scatterChart" class="md:block hidden w-[75vh] h-[50vh]"></div>
+    </div>
+
+</div>
+
+
+{% endblock %}
