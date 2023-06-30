@@ -3,7 +3,7 @@
 
     onload = () => {
         switch (route) {
-            case '/home':
+            case '/home': case '/index': case '/':
                 document.getElementById('home_route').style.color = '#1a56db';
                 break;
             case '/map':
@@ -13,6 +13,7 @@
                 document.getElementById('data_route').style.color = '#1a56db';
                 break;
             default:
+                document.getElementById('home_route').style.color = '#1a56db';
                 break;
         }
     }
