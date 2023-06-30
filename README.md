@@ -32,3 +32,9 @@ Simple deep learning algorithms
 Data cleaning and preparation tools
 Web development framework (SvelteKit)
 Visualization tools
+
+## References
+
+[Mapbox](https://www.mapbox.com/)
+
+[Centers for Disease Control and Prevention (CDC)](https://wwwn.cdc.gov/norsdashboard/)
