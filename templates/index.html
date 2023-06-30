@@ -1,67 +1,82 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+    h1,
+    h2 {
+        text-align: center;
+    }
+</style>
+
 <div
-    class="container pt-10 pb-32 md:pt-24 space-y-6 h-full mx-auto pl-5 pr-5 max-w-lg flex flex-col justify-center items-center">
+    class="container pt-10 pb-20 md:pb-32 md:pt-24 space-y-6 h-full mx-auto pl-5 pr-5 md:max-w-5xl max-w-lg flex flex-col justify-center items-center">
 
-    <h1 class="text-3xl text-center font-bold">Study on Foodborne Illness Outbreaks in the United States</h1>
+    <h1 class="text-3xl font-bold pb-8 md:pb-20">Study on Foodborne Illness <br class="hidden md:block"> Outbreaks in the United States</h1>
 
-    <h2 class="text-2xl font-semibold">Introduction</h2>
+    <div class="md:flex md:flex-row">
+        <div class="space-y-5 pr-5">
+            <h2 class="text-2xl font-semibold">Introduction</h2>
+            <p class="md:max-w-sm">Welcome to our study on foodborne illness outbreaks in the United States. This study aims to analyze the
+                relationship between foodborne illness outbreaks, coastal states, and population density. Our research
+                provides
+                valuable insights into the distribution of outbreaks and the impact of coastal states on the occurrence
+                of
+                foodborne illnesses. The study was conducted by Joel Daniel Rico and Melissa Huynh.</p>
+            <h4 class="text-lg font-semibold text-center">Methodology</h4>
+            <p class="md:max-w-sm">We collected data on foodborne illness outbreaks from various sources and analyzed the information for
+                all 50
+                states in the United States. The dataset includes information on the coastal classification, population
+                density,
+                and outbreak counts for each state.</p>
+            <h2 class="text-2xl font-semibold">Findings</h2>
+            <p class="md:max-w-sm">Here are the key findings from our study:</p>
+            <h4 class="text-lg font-semibold">Population Density</h4>
+            <p class="md:max-w-sm">We observed that the coastal states generally have higher population densities compared to non-coastal
+                states.
+                This could be attributed to factors such as urbanization and tourism.</p>
+            <h4 class="text-lg font-semibold">Foodborne Illness Outbreaks</h4>
+            <p class="md:max-w-sm">Our analysis revealed a higher number of foodborne illness outbreaks in coastal states compared to
+                non-coastal
+                states. Coastal states accounted for approximately 82% of all reported outbreaks, indicating a
+                significant
+                correlation between coastal states and foodborne illness incidents.</p>
+            <h4 class="text-lg font-semibold">Correlations</h4>
+            <p class="md:max-w-sm">The density-outbreak correlation suggests a weak positive relationship between population density and the
+                number
+                of foodborne illness outbreaks. While this correlation is relatively weak, it implies that higher
+                population
+                density may contribute to a slightly increased risk of foodborne illnesses.</p>
+        </div>
+        <div class="space-y-6">
+            <p class="md:max-w-sm">The coastal outbreak correlation, on the other hand, indicates a moderate positive relationship between
+                coastal
+                states and the occurrence of foodborne illness outbreaks. This finding highlights the importance of
+                considering
+                the coastal factor when studying and addressing food safety measures.</p>
+            <h2 class="text-2xl font-semibold">Conclusion</h2>
+            <p class="md:max-w-sm">Our study provides valuable insights into the distribution of foodborne illness outbreaks in the United
+                States.
+                The higher number of outbreaks in coastal states and the positive correlations observed emphasize the
+                need for
+                targeted preventive measures and food safety regulations in these areas.</p>
+            <p class="md:max-w-sm">Understanding the relationship between coastal states, population density, and foodborne illness
+                outbreaks can
+                aid policymakers, health authorities, and food industry professionals in implementing effective
+                strategies to
+                mitigate the risk of foodborne illnesses and ensure the safety of consumers nationwide.</p>
+            <p class="md:max-w-sm">Further research and analysis are recommended to delve deeper into the specific factors contributing to
+                the
+                higher prevalence of foodborne illnesses in coastal states and to explore additional correlations
+                between
+                outbreak occurrences and various demographic, environmental, and socio-economic factors.</p>
+            <p class="md:max-w-sm">Thank you for your interest in our study on foodborne illness outbreaks in the United States!</p>
+            <p class="md:max-w-sm"><em>Note: The statistics and findings presented in this study are based on the available data and
+                    analysis
+                    conducted by Joel Daniel Rico and Melissa Huynh. Please refer to the original data sources and
+                    conduct further
+                    research for comprehensive insights.</em></p>
+        </div>
+    </div>
 
-    <p>Welcome to our study on foodborne illness outbreaks in the United States. This study aims to analyze the
-        relationship between foodborne illness outbreaks, coastal states, and population density. Our research provides
-        valuable insights into the distribution of outbreaks and the impact of coastal states on the occurrence of
-        foodborne illnesses. The study was conducted by Joel Daniel Rico and Melissa Huynh.</p>
-
-    <h3 class="text-xl font-semibold">Methodology</h3>
-
-    <p>We collected data on foodborne illness outbreaks from various sources and analyzed the information for all 50
-        states in the United States. The dataset includes information on the coastal classification, population density,
-        and outbreak counts for each state.</p>
-
-    <h2 class="text-2xl font-semibold">Findings</h2>
-
-    <p>Here are the key findings from our study:</p>
-
-    <h4 class="text-lg font-semibold">Population Density</h4>
-
-    <p>We observed that the coastal states generally have higher population densities compared to non-coastal states.
-        This could be attributed to factors such as urbanization and tourism.</p>
-
-    <h4 class="text-lg font-semibold">Foodborne Illness Outbreaks</h4>
-
-    <p>Our analysis revealed a higher number of foodborne illness outbreaks in coastal states compared to non-coastal
-        states. Coastal states accounted for approximately 82% of all reported outbreaks, indicating a significant
-        correlation between coastal states and foodborne illness incidents.</p>
-
-    <h4 class="text-lg font-semibold">Correlations</h4>
-
-    <p>The density-outbreak correlation suggests a weak positive relationship between population density and the number
-        of foodborne illness outbreaks. While this correlation is relatively weak, it implies that higher population
-        density may contribute to a slightly increased risk of foodborne illnesses.</p>
-
-    <p>The coastal outbreak correlation, on the other hand, indicates a moderate positive relationship between coastal
-        states and the occurrence of foodborne illness outbreaks. This finding highlights the importance of considering
-        the coastal factor when studying and addressing food safety measures.</p>
-
-    <h2 class="text-2xl font-semibold">Conclusion</h2>
-
-    <p>Our study provides valuable insights into the distribution of foodborne illness outbreaks in the United States.
-        The higher number of outbreaks in coastal states and the positive correlations observed emphasize the need for
-        targeted preventive measures and food safety regulations in these areas.</p>
-
-    <p>Understanding the relationship between coastal states, population density, and foodborne illness outbreaks can
-        aid policymakers, health authorities, and food industry professionals in implementing effective strategies to
-        mitigate the risk of foodborne illnesses and ensure the safety of consumers nationwide.</p>
-
-    <p>Further research and analysis are recommended to delve deeper into the specific factors contributing to the
-        higher prevalence of foodborne illnesses in coastal states and to explore additional correlations between
-        outbreak occurrences and various demographic, environmental, and socio-economic factors.</p>
-
-    <p>Thank you for your interest in our study on foodborne illness outbreaks in the United States!</p>
-
-    <p><em>Note: The statistics and findings presented in this study are based on the available data and analysis
-            conducted by Joel Daniel Rico and Melissa Huynh. Please refer to the original data sources and conduct further
-            research for comprehensive insights.</em></p>
 </div>
 
 {% endblock %}
