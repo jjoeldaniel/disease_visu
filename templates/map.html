@@ -263,20 +263,26 @@
                     continue;
                 }
 
+                // Map layer ids to names.
+                const layerName = id === 'stateDensityData' ? 'Population Density' : 'Outbreaks';
+                const layerMap = {
+                    'Outbreaks': 'stateOutbreakData',
+                    'Population Density': 'stateDensityData'}
+
                 // Create a link.
                 const link = document.createElement('a');
                 link.id = id;
                 link.href = '#';
-                link.textContent = id;
+                link.textContent = layerName;
 
                 // Default layer
                 if (id === 'stateDensityData') {
-                    link.className = 'active';
+                    link.style.display = 'none';
                 }
 
                 // Show or hide layer when the toggle is clicked.
                 link.onclick = function (e) {
-                    const clickedLayer = this.textContent;
+                    const clickedLayer = layerMap[this.textContent];
                     e.preventDefault();
                     e.stopPropagation();
 
@@ -310,8 +316,8 @@
                         );
 
                         // Change menu
-                        other.className = 'active';
-                        link.className = '';
+                        other.style.display = 'none';
+                        link.style.display = 'block';
 
                         // Change title
                         title.style.display = 'none';
@@ -337,9 +343,9 @@
                         );
 
                         // Change menu
-                        other.className = '';
-                        link.className = 'active';
-
+                        other.style.display = 'block';
+                        link.style.display = 'none';
+                        
                         // Change title
                         title.style.display = 'block';
                         otherTitle.style.display = 'none';
