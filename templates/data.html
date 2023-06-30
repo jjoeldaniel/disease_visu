@@ -7,7 +7,7 @@
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
     google.charts.setOnLoadCallback(drawScatterChart);
-    google.charts.setOnLoadCallback(drawGauge);
+    google.charts.setOnLoadCallback(drawChart2);
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
@@ -19,13 +19,29 @@
         var options = {
             title: 'Distribution of Outbreaks',
             pieHole: 0.4,
-            colors: ['#36a2eb', '#ff6384']
+            colors: ['#c6def1', '#f6b974']
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('pieChart'));
         chart.draw(data, options);
     }
 
+    function drawChart2() {
+      var data = google.visualization.arrayToDataTable([
+          ['Type', 'Count'],
+          ['Coastal States', 30],
+          ['Non-Coastal States', 20]
+      ]);
+
+      var options = {
+          title: 'Coastal State Distribution',
+          pieHole: 0.4,
+          colors: ['#9ea1d4', '#fd8a8a']
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('pieChart2'));
+      chart.draw(data, options);
+  }
 
     function drawScatterChart() {
         var data = google.visualization.arrayToDataTable([
@@ -51,38 +67,6 @@
 
         chart.draw(data, options);
     }
-
-    function drawGauge() {
-
-        var data = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],
-          ['UI', 80],
-        ]);
-
-        var options = {
-          width: 400, height: 120,
-          redFrom: 90, redTo: 100,
-          yellowFrom:75, yellowTo: 90,
-          minorTicks: 5
-        };
-
-        var chart = new google.visualization.Gauge(document.getElementById('gaugeChart'));
-
-        chart.draw(data, options);
-
-        setInterval(function() {
-          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
-        }, 13000);
-        setInterval(function() {
-          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
-        }, 5000);
-        setInterval(function() {
-          data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-          chart.draw(data, options);
-        }, 26000);
-      }
 </script>
 
 <style>
@@ -97,13 +81,16 @@
 </style>
 
 <div
-    class="container pt-10 pb-20 md:pb-32 md:pt-24 space-y-6 h-full mx-auto pl-5 pr-5 md:max-w-5xl max-w-lg flex flex-col justify-center items-center">
+    class="container pt-10 pb-20 md:pb-0 md:pt-24 space-y-6 h-full mx-auto pl-5 pr-5 md:max-w-5xl max-w-lg flex flex-col justify-center items-center">
 
-    <h1 class="text-3xl font-bold pb-8 md:pb-20">Data Representation</h1>
+    <h1 class="text-3xl font-bold pb-8 md:pb-0">Data Representation</h1>
 
-    <div class="md:flex md:flex-row flex-col">
-        <div id="pieChart" class="w-96 h-96 md:w-[50vh] md:h-[50vh]"></div>
-        <div id="scatterChart" class="md:block hidden w-[75vh] h-[50vh]"></div>
+    <div class="md:flex md:place-items-center md:flex-row flex-col col">
+        <div>
+          <div id="pieChart" class="w-96 h-72 md:w-[40vh] md:h-[25vh]"></div>
+          <div id="pieChart2" class=" w-96 h-72 md:w-[40vh] md:h-[25vh]"></div>
+        </div>
+        <div id="scatterChart" class="md:block hidden w-[75vh] h-[75vh]"></div>
     </div>
 
 </div>
