@@ -1,0 +1,14 @@
+{
+  "Total States": 50,
+  "Coastal States": 30,
+  "Non-Coastal States": 20,
+  "Total Density": 9783.229,
+  "Coastal Density": 8805.094,
+  "Non-Coastal Density": 978.1350000000001,
+  "Total Outbreaks": 41666,
+  "Coastal Outbreaks": 34132,
+  "Non-Coastal Outbreaks": 7534,
+  "Coastal Outbreak Percentage": 81.91811068977104,
+  "Density-Outbreak Correlation": 0.1652993312079955,
+  "Coastal Outbreak Correlation": 0.49167935429363785
+}

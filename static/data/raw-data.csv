@@ -1,0 +1,51 @@
+state,coastal,density,outbreaks
+Alabama,true,94.65,358
+Alaska,true,1.264,187
+Arizona,false,57.05,839
+Arkansas,false,56.43,179
+California,true,241.7,2546
+Colorado,false,49.33,890
+Connecticut,true,739.1,668
+Delaware,true,464.3,109
+Florida,true,353.4,2612
+Georgia,true,169.5,580
+Hawaii,true,214.1,470
+Idaho,false,19.15,170
+Illinois,true,231.5,1994
+Indiana,true,181.7,401
+Iowa,false,54.81,464
+Kansas,false,35.09,551
+Kentucky,false,110,536
+Louisiana,true,105,202
+Maine,true,43.04,707
+Maryland,true,596.3,989
+Massachusetts,true,840.2,1313
+Michigan,true,173.9,2095
+Minnesota,true,67.14,1790
+Mississippi,true,63.5,139
+Missouri,false,87.26,471
+Montana,false,6.858,215
+Nebraska,false,23.97,211
+Nevada,false,24.8,391
+New Hampshire,true,147,607
+New Jersey,true,1189,334
+New Mexico,false,17.16,259
+New York,true,412.3,2728
+North Carolina,true,198.2,737
+North Dakota,false,9.916,227
+Ohio,true,281.9,2471
+Oklahoma,false,55.22,126
+Oregon,true,40.33,1655
+Pennsylvania,true,284.3,1922
+Rhode Island,true,1006,353
+South Carolina,true,155.4,707
+South Dakota,false,98.07,77
+Tennessee,false,88.08,745
+Texas,true,98.07,785
+Utah,false,34.3,303
+Vermont,false,67.73,194
+Virginia,true,204.5,1648
+Washington,true,102.6,988
+West Virginia,false,77.06,443
+Wisconsin,true,105.2,2037
+Wyoming,false,5.851,243
